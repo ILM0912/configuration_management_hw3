@@ -1,0 +1,17 @@
+{
+    "pi": 3.14,
+    "radius": 5.0,
+    "a": 10.0,
+    "b": 8.0,
+    "circle": {
+        "radius": 5.0,
+        "perimeter": 31.4,
+        "square": 78.5
+    },
+    "rect": {
+        "a": 10.0,
+        "b": 8.0,
+        "perimeter": 36.0,
+        "square": 80.0
+    }
+}

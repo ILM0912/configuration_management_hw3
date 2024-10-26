@@ -1,0 +1,15 @@
+global pacient = 1234
+
+global results = begin
+    hemoglobin:=14.2;
+    redbloodcells:=5.2;
+    whitebloodcells:=7.8;
+    platelets:=250;
+    hematocrit:=42.5;
+    glucose:=95;
+    cholesterol:=200
+    end
+global analysis=begin
+id:=pacient;
+results:=results
+end

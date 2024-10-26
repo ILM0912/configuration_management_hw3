@@ -91,7 +91,7 @@ def test_error_TypeError():
         config_parser = Lark(grammar)
         parse_config(config_parser, content)
     except Exception as err:
-        assert str(err) == """Ошибка при обработке:\nError trying to process rule "clone_value_digit":\n\nНевозможно использовать массив или словарь для вычислений  - int() argument must be a string, a bytes-like object or a real number, not 'list'"""
+        assert str(err) == """Ошибка при обработке:\nError trying to process rule "clone_value_digit":\n\nНевозможно использовать массив или словарь для вычислений  - float() argument must be a string or a real number, not 'list'"""
 
 def test_error_UnexpectedCharacter():
     try:
@@ -101,7 +101,6 @@ def test_error_UnexpectedCharacter():
         config_parser = Lark(grammar)
         parse_config(config_parser, content)
     except Exception as err:
-        print(str(err))
         assert str(err) == """Неожиданный символ: 
 No terminal matches '1' in the current parser context, at line 2 col 22
 

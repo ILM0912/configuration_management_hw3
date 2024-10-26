@@ -1,0 +1,15 @@
+global pi = 3.14
+global radius = 5
+global a = 10
+global b = 8
+global circle = begin
+radius:=radius;
+perimeter:=@[* @[* pi radius] 2];
+square:=@[* pi @[pow() radius 2]]
+end
+global rect = begin
+a:=a;
+b:=b;
+perimeter:=@[* 2 @[+a b]];
+square:=@[* a b]
+end

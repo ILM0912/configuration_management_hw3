@@ -1,0 +1,13 @@
+global group = 10
+global idkrasotkin = 15
+global idzhaglo = 7
+global idkorotkov = 14
+global idlyaskovskiy = 20
+global idzapryagaev = 9
+global students = begin
+ zapryagaev:=begin id:=idzapryagaev; marks:=#(5 5 5 5 5 5) end;
+ zhaglo:=begin id:=idzhaglo; marks:=#(5 5 5 5 5 4) end;
+ krasotkin:=begin id:=idkrasotkin; marks:=#(5 5 5 5 5 5) end;
+ lyaskovskiy:=begin id:=idlyaskovskiy; marks:=#(5 5 5 5 5 5) end;
+ korotkov:=begin id:=idkorotkov; marks:=#(5 5 5 5 5 5) end
+ end

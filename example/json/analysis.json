@@ -1,0 +1,24 @@
+{
+    "pacient": 1234.0,
+    "results": {
+        "hemoglobin": 14.2,
+        "redbloodcells": 5.2,
+        "whitebloodcells": 7.8,
+        "platelets": 250.0,
+        "hematocrit": 42.5,
+        "glucose": 95.0,
+        "cholesterol": 200.0
+    },
+    "analysis": {
+        "id": 1234.0,
+        "results": {
+            "hemoglobin": 14.2,
+            "redbloodcells": 5.2,
+            "whitebloodcells": 7.8,
+            "platelets": 250.0,
+            "hematocrit": 42.5,
+            "glucose": 95.0,
+            "cholesterol": 200.0
+        }
+    }
+}

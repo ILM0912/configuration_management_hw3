@@ -3,6 +3,7 @@ from lark import Lark, Transformer, exceptions
 import json
 
 CONSTS = {}
+
 grammar = """
     start: constants
     root_value: array | dict
@@ -38,6 +39,23 @@ def main():
     result = json.dumps(parsed_data, indent=4)
     with open(output_file, 'w') as file:
         file.write(result)
+    CONSTS.clear()
+
+def example():
+    input_files = ['example/edu/math.SENYA', 'example/edu/ex2.SENYA', 'example/edu/ex3.SENYA']
+    output_files = ['example/json/math.json', 'example/json/ex2.json', 'example/json/ex3.json']
+    config_parser = Lark(grammar)
+    for i in range(min(len(input_files), len(output_files))):
+        input_file = input_files[i]
+        output_file = output_files[i]
+        print(input_file, " ---> ", output_file, "done")
+        with open(input_file, 'r') as file:
+            content = file.read()
+        parsed_data = parse_config(config_parser, content)
+        result = json.dumps(parsed_data, indent=4)
+        with open(output_file, 'w') as file:
+            file.write(result)
+        CONSTS.clear()
 
 class JSONTransformer(Transformer):
     def start(self, items):
@@ -63,7 +81,7 @@ class JSONTransformer(Transformer):
         global CONSTS
         result = CONSTS[str(item[0])]
         try:
-            return int(result)
+            return float(result)
         except TypeError as err:
             raise Exception(f"Невозможно использовать массив или словарь для вычислений  - {str(err)}")
 
@@ -74,22 +92,22 @@ class JSONTransformer(Transformer):
         return item[0]
 
     def add(self, item):
-        return item[0]+item[1]
+        return round(item[0]+item[1], 5)
 
     def subtract(self, item):
-        return item[0]-item[1]
+        return round(item[0]-item[1], 5)
 
     def divide(self, item):
-        return item[0]/item[1]
+        return round(item[0]/item[1], 5)
 
     def multiply(self, item):
-        return item[0]*item[1]
+        return round(item[0]*item[1], 5)
 
     def power(self, item):
-        return pow(item[0],item[1])
+        return round(pow(item[0],item[1]), 5)
 
     def sqrt(self, item):
-        return sqrt(item[0])
+        return round(sqrt(item[0]), 5)
 
     def value(self, item):
         return item[0]
@@ -131,3 +149,4 @@ def parse_config(config_parser, input_text):
 
 if __name__ == "__main__":
     main()
+    example()

@@ -1,0 +1,13 @@
+global id = 91222
+global results = begin
+                    id:=id;
+                    age:=19;
+                    passport:= #( 1234 567890 );
+                    results:=begin
+                                math:=90;
+                                rus:=91;
+                                inf:=88;
+                                phys:=87
+                             end
+                end
+global array = #( id @[sqrt() id] @[pow() id 0.5] )

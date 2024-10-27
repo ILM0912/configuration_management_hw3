@@ -6,8 +6,9 @@ CONSTS = {}
 
 grammar = """
     start: constants
-    root_value: array | dict
+    
     value:  NUMBER | array | dict | clone_value | calculation
+    
     calculation: add | subtract | multiply | divide | power | sqrt
     add: "@[" "+" argument argument "]"
     subtract: "@[" "-" argument argument "]"
@@ -16,10 +17,12 @@ grammar = """
     power: "@[" "pow()" argument argument "]"
     sqrt: "@[" "sqrt()" argument "]"
     argument: NUMBER | calculation | clone_value_digit
+    
     clone_value_digit: NAME
     clone_value: NAME
     constants: (const_declaration)*
     const_declaration: "global" NAME "=" value
+    
     array: "#(" value (" " value)* ")"
     dict: "begin" [pair (";" pair)*] "end"
     pair: NAME ":=" value

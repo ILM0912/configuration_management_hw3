@@ -1,6 +1,7 @@
 from math import sqrt
 from lark import Lark, Transformer, exceptions
 import json
+import sys
 
 CONSTS = {}
 
@@ -33,33 +34,13 @@ grammar = """
     """
 
 def main():
-    input_file = 'edu_lang.SENYA'
     output_file = 'output.json'
     config_parser = Lark(grammar)
-    with open(input_file, 'r') as file:
-        content = file.read()
+    content = sys.stdin.read()
     parsed_data = parse_config(config_parser, content)
     result = json.dumps(parsed_data, indent=4)
-    with open(output_file, 'w') as file:
-        file.write(result)
-    print(input_file, " ---> ", output_file, "done")
+    sys.stdout.write(result)
     CONSTS.clear()
-
-def example():
-    input_files = ['example/edu/math.SENYA', 'example/edu/students.SENYA', 'example/edu/analysis.SENYA']
-    output_files = ['example/json/math.json', 'example/json/students.json', 'example/json/analysis.json']
-    config_parser = Lark(grammar)
-    for i in range(min(len(input_files), len(output_files))):
-        input_file = input_files[i]
-        output_file = output_files[i]
-        with open(input_file, 'r') as file:
-            content = file.read()
-        parsed_data = parse_config(config_parser, content)
-        result = json.dumps(parsed_data, indent=4)
-        with open(output_file, 'w') as file:
-            file.write(result)
-        print(input_file, " ---> ", output_file, "done")
-        CONSTS.clear()
 
 class JSONTransformer(Transformer):
     def start(self, items):
@@ -150,4 +131,3 @@ def parse_config(config_parser, input_text):
 
 if __name__ == "__main__":
     main()
-    #example()

@@ -20,6 +20,7 @@
 3. Установите необходимые зависимости (pytest для тестов):
    ```bash
    pip install pytest
+   pip install lark
    ```
 
 # Запуск скрипта
@@ -92,12 +93,12 @@ global idkorotkov = 14
 global idlyaskovskiy = 20
 global idzapryagaev = 9
 global students = begin
-   zapryagaev:=begin id:=idzapryagaev; marks:=#(5 5 5 5 5 5) end;
+   zapryagaev:=begin id:=idzapryagaev; marks:=#(5 5 5 5 5 4) end;
    zhaglo:=begin id:=idzhaglo; marks:=#(5 5 5 5 5 4) end;
    krasotkin:=begin id:=idkrasotkin; marks:=#(5 5 5 5 5 5) end;
    lyaskovskiy:=begin id:=idlyaskovskiy; marks:=#(5 5 5 5 5 5) end;
-   korotkov:=begin id:=idkorotkov; marks:=#(5 5 5 5 5 5) end
-enы
+   korotkov:=begin id:=idkorotkov; marks:=#(5 5 5 5 5 4) end
+end
 ```
 **Выходные данные (JSON):**
 ```json
@@ -117,7 +118,7 @@ enы
                 5.0,
                 5.0,
                 5.0,
-                5.0
+                4.0
             ]
         },
         "zhaglo": {
@@ -161,7 +162,7 @@ enы
                 5.0,
                 5.0,
                 5.0,
-                5.0
+                4.0
             ]
         }
     }
